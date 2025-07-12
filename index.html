@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Team Portal</title>
+    <link rel="stylesheet" href="app.css">
+    <style>
+        /* Extra minimal glassmorphism effect for the menu */
+        .glass {
+            background: rgba(30, 30, 30, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 32px 24px;
+            margin: 32px auto;
+            max-width: 1100px;
+        }
+        .menu-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #fff;
+            text-shadow: 0 2px 8px #c8102e55;
+        }
+        .teams-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            width: 100%;
+        }
+        .team-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+            width: 180px;
+            height: 180px;
+            padding: 18px 10px 10px 10px;
+            transition: transform 0.25s, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+            position: relative;
+        }
+        .team-card:hover {
+            transform: translateY(-8px) scale(1.07);
+            box-shadow: 0 8px 32px rgba(200,16,46,0.18);
+            border: 1px solid #c8102e44;
+            background: rgba(255,255,255,0.12);
+        }
+        .team-logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: grayscale(100%) brightness(0.9);
+            transition: filter 0.3s;
+        }
+        .team-card:hover .team-logo {
+            filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 8px #c8102e88);
+        }
+        .team-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 2px;
+            opacity: 0.95;
+            position: relative;
+        }
+        .team-name::after {
+            content: '';
+            display: block;
+            width: 0%;
+            height: 3px;
+            margin: 6px auto 0 auto;
+            background: linear-gradient(90deg, #c8102e 60%, #fff 100%);
+            border-radius: 2px;
+            transition: width 0.35s cubic-bezier(.4,2,.6,1);
+        }
+        .team-card:hover .team-name::after {
+            width: 80%;
+        }
+        @media (max-width: 900px) {
+            .team-card { width: 120px; height: 120px; }
+            .team-logo { width: 48px; height: 48px; }
+        }
+        @media (max-width: 600px) {
+            .glass { padding: 12px 2px; }
+            .menu-title { font-size: 2rem; }
+            .teams-grid { gap: 12px; }
+            .team-card { width: 90px; height: 90px; padding: 10px 2px; }
+            .team-logo { width: 32px; height: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass">
+        <div class="menu-title">F1 TEAM MENU</div>
+        <div class="teams-grid">
+            <a class="team-card" href="https://www.mercedesamgf1.com/" title="Visit Mercedes" target="_blank">
+                <img src="img/mercedes_logo.png" alt="Mercedes" class="team-logo">
+                <div class="team-name">Mercedes</div>
+            </a>
+            <a class="team-card" href="https://www.redbullracing.com/" title="Visit Red Bull Racing" target="_blank">
+                <img src="img/redbull_logo.png" alt="Red Bull Racing" class="team-logo">
+                <div class="team-name">Red Bull Racing</div>
+            </a>
+            <a class="team-card" href="https://www.ferrari.com/en-EN/formula1" title="Visit Ferrari" target="_blank">
+                <img src="img/ferrari_logo.png" alt="Ferrari" class="team-logo">
+                <div class="team-name">Ferrari</div>
+            </a>
+            <a class="team-card" href="https://www.landoverracing.com/" title="Visit McLaren" target="_blank">
+                <img src="img/mclaren_logo.png" alt="McLaren" class="team-logo">
+                <div class="team-name">McLaren</div>
+            </a>
+            <a class="team-card" href="https://www.alpinef1team.com/" title="Visit Alpine" target="_blank">
+                <img src="img/alpine_logo.png" alt="Alpine" class="team-logo">
+                <div class="team-name">Alpine</div>
+            </a>
+            <a class="team-card" href="https://www.astonmartinf1.com/" title="Visit Aston Martin" target="_blank">
+                <img src="img/astonmartin_logo.png" alt="Aston Martin" class="team-logo">
+                <div class="team-name">Aston Martin</div>
+            </a>
+            <a class="team-card" href="https://www.alpha-tauri.com/" title="Visit AlphaTauri" target="_blank">
+                <img src="img/alphatauri_logo.png" alt="AlphaTauri" class="team-logo">
+                <div class="team-name">AlphaTauri</div>
+            </a>
+            <a class="team-card" href="https://www.haasf1team.com/" title="Visit Haas" target="_blank">
+                <img src="img/haas_logo.png" alt="Haas" class="team-logo">
+                <div class="team-name">Haas</div>
+            </a>
+            <a class="team-card" href="https://www.williamsf1.com/" title="Visit Williams" target="_blank">
+                <img src="img/williams_logo.png" alt="Williams" class="team-logo">
+                <div class="team-name">Williams</div>
+            </a>
+            <a class="team-card" href="https://www.alphatauri.com/" title="Visit Alfa Romeo" target="_blank">
+                <img src="img/alfaromeo_logo.png" alt="Alfa Romeo" class="team-logo">
+                <div class="team-name">Alfa Romeo</div>
+            </a>
+        </div>
+        <footer style="margin-top:40px;text-align:center;opacity:0.7;font-size:1rem;">
+            &copy; Created By Anas Wicaksono
+        </footer>
+    </div>
+</body>
+</html>
